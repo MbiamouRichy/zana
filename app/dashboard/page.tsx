@@ -1,4 +1,3 @@
-
 import { getUser } from "@/lib/auth-server";
 import {
   Card,
@@ -9,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import SignOutButton from "./signOutButton";
+import AlertVerifyEmail from "@/components/dashboard/alertVerifyEmail";
 
 export default async function DashboardPage() {
   const user = await getUser(); // Get the user from the server-side session
@@ -16,17 +16,13 @@ export default async function DashboardPage() {
     // If no user is found, redirect to the sign-up page
     return (
       <div className="h-screen flex items-center justify-center">
-        <p className="text-muted-foreground">You must be signed in to view this page.</p>
-        <Link
-          href="/sign-in"
-          className="ml-4 text-primary underline"
-        >
+        <p className="text-muted-foreground">
+          You must be signed in to view this page.
+        </p>
+        <Link href="/sign-in" className="ml-4 text-primary underline">
           Sign In
         </Link>
-        <Link
-          href="/sign-up"
-          className="ml-4 text-muted-foreground underline"
-        >
+        <Link href="/sign-up" className="ml-4 text-muted-foreground underline">
           Sign up
         </Link>
       </div>
@@ -58,7 +54,7 @@ export default async function DashboardPage() {
           <SignOutButton />
         </CardFooter>
       </Card>
+      {user.emailVerified === false && <AlertVerifyEmail email={user.email} />}
     </main>
   );
 }
-

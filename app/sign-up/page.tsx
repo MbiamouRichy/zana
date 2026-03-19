@@ -1,67 +1,18 @@
-"use client";
+import { SignUpForm } from "@/components/formSignup";
+import LayoutSign from "@/components/layoutSign";
+import type { Metadata } from "next";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { signUp } from "@/lib/auth-client";
+export const metadata: Metadata = {
+  title: "Zana - S'incrire",
+  description:
+    " Créez votre compte et découvrez notre collection exclusive de vêtements tendance.",
+};
 
+export const dynamic = "force-static";
 export default function SignUpPage() {
-  const router = useRouter();
-  const [error, setError] = useState<string | null>(null);
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setError(null);
-
-    const formData = new FormData(e.currentTarget);
-
-    await signUp.email({
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      password: formData.get("password") as string,
-    },{
-        onSuccess: () => { 
-            router.push("/dashboard");
-        }
-    ,
-            onError: (error) => {
-                setError(error.error.message || "Something went wrong.");
-            }       
-        });
-  }
   return (
-    <main className="max-w-md mx-auto p-6 space-y-4 text-white">
-      <h1 className="text-2xl font-bold">Sign Up</h1>
-      {error && <p className="text-red-500">{error}</p>}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {" "}
-        <input
-          name="name"
-          placeholder="Full Name"
-          required
-          className="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2"
-        />{" "}
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          required
-          className="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2"
-        />{" "}
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-          minLength={8}
-          className="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2"
-        />{" "}
-        <button
-          type="submit"
-          className="w-full bg-white text-black font-medium rounded-md px-4 py-2 hover:bg-gray-200"
-        >
-          Create Account
-        </button>{" "}
-      </form>{" "}
-    </main>
+    <LayoutSign imageSrc="/4.jpg">
+      <SignUpForm />
+    </LayoutSign>
   );
 }
