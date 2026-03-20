@@ -45,6 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
+      suppressHydrationWarning
       className={cn(
         "font-bricolage-grotesque",
         "font-figtree",

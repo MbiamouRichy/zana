@@ -11,10 +11,25 @@ import {
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";
 import { Loader } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function AlertVerifyEmail({ email }: { email: string }) {
   const [loading, setLoading] = useState(false);
+  const [timer, setTimer] = useState(0); // ⏱️ temps restant
+  const [time, setTime] = useState(30); // ⏱️ temps d'attente initial en secondes
+
+  // ⏱️ Décompte
+  useEffect(() => {
+    if (timer <= 0) return;
+
+    const interval = setInterval(() => {
+      setTimer((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [timer]);
+
   const resendVerificationEmail = async () => {
+    if (timer > 0) return;
     setLoading(true);
     await authClient.sendVerificationEmail(
       {
@@ -31,6 +46,7 @@ export default function AlertVerifyEmail({ email }: { email: string }) {
             ),
             position: "top-center",
           });
+          setTimer(time);
         },
         onError: () => {
           toast.error("L'envoi de l'e-mail de vérification a échoué.", {
@@ -50,6 +66,8 @@ export default function AlertVerifyEmail({ email }: { email: string }) {
       },
     );
     setLoading(false);
+    // triple le temps d'attente pour la prochaine tentative
+    setTime((prev) => prev * 3);
   };
   return (
     <AlertDialog open={true}>
@@ -74,11 +92,17 @@ export default function AlertVerifyEmail({ email }: { email: string }) {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogAction
-            disabled={loading}
+            disabled={loading || timer > 0}
             onClick={() => resendVerificationEmail()}
           >
             {loading ? <Loader className="animate-spin" /> : null}
             Renvoyer le lien
+            {timer > 0 ? (
+              <span className="ml-2 text-sm text-muted-foreground">
+                {Math.floor(timer / 60)}:
+                {(timer % 60).toString().padStart(2, "0")}
+              </span>
+            ) : null}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
