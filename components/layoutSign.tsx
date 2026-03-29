@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import { GalleryVerticalEnd } from "lucide-react";
+>>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
 import Image from "next/image";
 import Link from "next/link";
 export default function LayoutSign({
@@ -10,6 +14,7 @@ export default function LayoutSign({
   return (
     <div className="flex flex-row min-h-screen min-w-full overflow-x-hidden!">
       <div className="lg:w-2/5 w-full flex flex-col gap-4 p-2 md:p-10">
+<<<<<<< HEAD
         <div className="flex justify-start">
           <Link
             href="/"
@@ -41,6 +46,18 @@ export default function LayoutSign({
                 fill="currentColor"
               />
             </svg>
+=======
+        <div className="flex gap-2 justify-start">
+          <Link
+            href="/"
+            title="Accueil"
+            className="flex items-center gap-2 self-start font-medium"
+          >
+            <div className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
+              <GalleryVerticalEnd className="size-4" />
+            </div>
+            ZANA
+>>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
           </Link>
         </div>
         <div className="flex w-full h-full flex-col self-center items-center justify-center">

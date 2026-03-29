@@ -20,7 +20,11 @@ export function useHaptics() {
       ]);
     } else {
       haptics.trigger([{ duration: 35 }], { intensity: 1 });
+<<<<<<< HEAD
 }
+=======
+    }
+>>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
   };
 
   return { playHaptic };

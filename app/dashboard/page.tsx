@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+<<<<<<< HEAD
 import SignOutButton from "./signOutButton";
 import { redirect } from "next/navigation";
 
@@ -19,6 +20,29 @@ export default async function DashboardPage() {
   // 🔒 BLOQUER SI EMAIL NON VERIFIÉ
   if (!user.emailVerified) {
     redirect("/verify");
+=======
+import Link from "next/link";
+import SignOutButton from "./signOutButton";
+import AlertVerifyEmail from "@/components/dashboard/alertVerifyEmail";
+
+export default async function DashboardPage() {
+  const user = await getUser(); // Get the user from the server-side session
+  if (!user) {
+    // If no user is found, redirect to the sign-up page
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <p className="text-muted-foreground">
+          You must be signed in to view this page.
+        </p>
+        <Link href="/sign-in" className="ml-4 text-primary underline">
+          Sign In
+        </Link>
+        <Link href="/sign-up" className="ml-4 text-muted-foreground underline">
+          Sign up
+        </Link>
+      </div>
+    );
+>>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
   }
 
   return (
@@ -46,6 +70,10 @@ export default async function DashboardPage() {
           <SignOutButton />
         </CardFooter>
       </Card>
+<<<<<<< HEAD
+=======
+      {user.emailVerified === false && <AlertVerifyEmail email={user.email} />}
+>>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
     </main>
   );
 }

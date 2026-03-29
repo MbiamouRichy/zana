@@ -7,7 +7,17 @@ import { toast } from "sonner";
 import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
+<<<<<<< HEAD
 
+=======
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+>>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
 import {
   Field,
   FieldDescription,
@@ -23,7 +33,10 @@ import { useRouter } from "next/navigation";
 import { Eye, EyeOff, Loader } from "lucide-react";
 import { useState } from "react";
 import { useHaptics } from "@/lib/webHaptics";
+<<<<<<< HEAD
 import { SignInSocialButton } from "./signInSocialButton";
+=======
+>>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
 
 const formSchema = z
   .object({
@@ -105,6 +118,7 @@ export function SignUpForm() {
 
   return (
     <div className=" w-full sm:max-w-md">
+<<<<<<< HEAD
       <div className="w-full mt-2 flex flex-col lg:space-y-4">
         <div className="w-full p-2 md:px-4">
           <h1>Creer un compte</h1>
@@ -113,6 +127,17 @@ export function SignUpForm() {
           </p>
         </div>
         <div className="w-full p-2 md:px-4">
+=======
+      <h1>S{`'`}inscrire</h1>
+      <Card className="w-full mt-2">
+        <CardHeader>
+          <CardTitle>Creer un compte</CardTitle>
+          <CardDescription>
+            Entrer vos informations pour créer un compte.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+>>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
           <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>
             <FieldGroup>
               <Controller
@@ -237,8 +262,12 @@ export function SignUpForm() {
                     {loading ? <Loader className="animate-spin" /> : null}
                     Creer un compte
                   </Button>
+<<<<<<< HEAD
                   {/* Se connecter avec les reseaux sociaux */}
                   <SignInSocialButton />
+=======
+
+>>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
                   <FieldDescription className="px-6 text-center">
                     Avez-vous déjà un compte?{" "}
                     <Link title="s'identifier" href="/sign-in">
@@ -249,8 +278,13 @@ export function SignUpForm() {
               </FieldGroup>
             </FieldGroup>
           </form>
+<<<<<<< HEAD
         </div>
       </div>
+=======
+        </CardContent>
+      </Card>
+>>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
     </div>
   );
 }
