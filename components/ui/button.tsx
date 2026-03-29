@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Slot } from "radix-ui";
@@ -7,16 +6,6 @@ import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "group/button cursor-pointer inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-=======
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { Slot } from "radix-ui"
-
-import { cn } from "@/lib/utils"
-
-const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
->>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
   {
     variants: {
       variant: {
@@ -49,13 +38,8 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-<<<<<<< HEAD
   },
 );
-=======
-  }
-)
->>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
 
 function Button({
   className,
@@ -65,15 +49,9 @@ function Button({
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
-<<<<<<< HEAD
     asChild?: boolean;
   }) {
   const Comp = asChild ? Slot.Root : "button";
-=======
-    asChild?: boolean
-  }) {
-  const Comp = asChild ? Slot.Root : "button"
->>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
 
   return (
     <Comp
@@ -83,14 +61,7 @@ function Button({
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
-<<<<<<< HEAD
   );
 }
 
 export { Button, buttonVariants };
-=======
-  )
-}
-
-export { Button, buttonVariants }
->>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
