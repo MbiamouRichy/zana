@@ -1,8 +1,13 @@
-"use client";
 
 import { buttonVariants } from "@/components/ui/button";
+import type { Metadata } from "next";
 import Link from "next/link";
-
+export const metadata: Metadata = {
+  title: "Zana - Accueil",
+  description:
+    "Bienvenue sur Zana, votre destination de mode chic pour les jeunes. Découvrez nos collections uniques et tendance à des prix abordables.",
+};
+export const dynamic = "force-static";
 export default function Home() {
 
   return (

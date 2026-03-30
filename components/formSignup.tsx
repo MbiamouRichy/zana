@@ -103,7 +103,7 @@ export function SignUpForm() {
   }
 
   return (
-    <div className=" w-full sm:max-w-md">
+    <div className=" w-full  h-auto sm:max-w-md">
       <div className="w-full mt-2 flex flex-col lg:space-y-4">
         <div className="w-full p-2 md:px-4">
           <h1>Creer un compte</h1>

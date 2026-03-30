@@ -11,7 +11,7 @@ export const dynamic = "force-static";
 
 export default function SignInPage() {
   return (
-    <LayoutSign imageSrc="/4.jpg">
+    <LayoutSign imageSrc="/4.png">
       <SignInForm />
     </LayoutSign>
   );
