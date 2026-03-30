@@ -7,13 +7,7 @@ import { toast } from "sonner";
 import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+
 import {
   Field,
   FieldDescription,
@@ -92,16 +86,16 @@ export default function ForgetPasswordForm() {
     setLoading(false);
   }
   return (
-    <div className=" w-screen min-h-screen flex flex-col items-center justify-center p-2">
-      <Card className="w-full mt-2  md:max-w-prose">
-        <CardHeader>
-          <CardTitle>Mot de passe oublié ?</CardTitle>
-          <CardDescription>
+    <div className="flex flex-col items-center justify-center p-2">
+      <div className="w-full mt-2 flex flex-col lg:space-y-4">
+        <div className="flex flex-col">
+          <h1>Mot de passe oublié ?</h1>
+          <p className="text-muted-foreground text-sm">
             Entrer votre adresse e-mail pour recevoir les instructions de
             réinitialisation.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+          </p>
+        </div>
+        <div className="w-full p-2 md:px-4">
           <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>
             <FieldGroup>
               <Controller
@@ -141,8 +135,8 @@ export default function ForgetPasswordForm() {
               </FieldGroup>
             </FieldGroup>
           </form>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }

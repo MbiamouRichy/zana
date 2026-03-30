@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export const dynamic = "force-static";
 export default function SignUpPage() {
   return (
-    <LayoutSign imageSrc="/4.png">
+    <LayoutSign imageSrc="/5.jpg">
       <SignUpForm />
     </LayoutSign>
   );

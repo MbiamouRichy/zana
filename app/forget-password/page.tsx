@@ -1,4 +1,5 @@
 import ForgetPasswordForm from "@/components/forgetPasswordForm";
+import LayoutSign from "@/components/layoutSign";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Zana - Mot de passe oublié",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 export const dynamic = "force-static";
 
 export default function ForgetPasswordPage() {
-  return <ForgetPasswordForm />;
+  return (
+    <LayoutSign imageSrc="/4.jpg">
+      <ForgetPasswordForm />
+    </LayoutSign>
+  );
 }

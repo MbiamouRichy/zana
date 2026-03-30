@@ -9,8 +9,7 @@ export default function LayoutSign({
 }>) {
   return (
     <div className="flex flex-row min-w-full relative overflow-x-hidden!">
-      <div className="lg:w-2/5 w-full min-h-screen flex flex-col gap-4 p-2 md:p-10">
-        <div className="flex justify-start">
+      <div className="lg:w-2/5 w-full min-h-screen flex flex-col items-center gap-4 p-2 md:p-10">
           <Link
             href="/"
             title="Accueil"
@@ -42,8 +41,7 @@ export default function LayoutSign({
               />
             </svg>
           </Link>
-        </div>
-        <div className="flex w-full flex-col self-center items-center justify-center">
+        <div className="flex flex-1 w-full flex-col items-center justify-center">
           {children}
         </div>
       </div>
