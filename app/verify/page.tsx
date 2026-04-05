@@ -1,24 +1,17 @@
-<<<<<<< HEAD
 import AlertVerifyEmail from "@/components/dashboard/alertVerifyEmail";
-=======
->>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-<<<<<<< HEAD
 import { getUser } from "@/lib/auth-server";
 import { redirect } from "next/navigation";
-=======
->>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
 import React from "react";
 
 export default async function page(props: {
   searchParams: Promise<Record<string, string>>;
 }) {
-<<<<<<< HEAD
   const user = await getUser(); // Get the user from the server-side session
 
   if (!user) {
@@ -57,7 +50,6 @@ export default async function page(props: {
         </>
       )}
     </main>
-=======
   const searchParams = await props.searchParams;
   const email = searchParams.email;
   return (
@@ -83,6 +75,5 @@ export default async function page(props: {
         </CardHeader>
       </Card>
     </div>
->>>>>>> 4f9a9f2cb12aeb63a2d58e8a536d38f1a659d2e1
   );
 }
