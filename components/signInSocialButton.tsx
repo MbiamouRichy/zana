@@ -15,14 +15,6 @@ export function SignInSocialButton() {
         callbackURL: "/dashboard",
       },
       {
-        onSuccess: () => {
-          playHaptic("success");
-
-          toast.success("Connexion réussie.", {
-            position: "top-center",
-          });
-          router.push("/dashboard");
-        },
         onError: (error) => {
           playHaptic("error");
           toast.error("Une erreur s'est produite.", {
